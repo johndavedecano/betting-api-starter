@@ -3,6 +3,10 @@
 A betting system starter with the following features.
 Start a betting site with this project.
 
+![My Image](https://raw.github.com/johndavedecano/betting-api-starter/master/screenshot.png)
+
+## Features/MicroServices included
+
 1. Authentication
 2. Wallet
 3. Betting
