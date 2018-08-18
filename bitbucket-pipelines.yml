@@ -1,0 +1,41 @@
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: node:8
+
+pipelines:
+  default:
+    - step:
+        name: Code Quality Test
+        caches:
+        - node
+        script: # Modify the commands below to build your repository.
+        - cd ./authentication
+        - yarn
+        - npm run lint
+        - cd ../wallet
+        - yarn
+        - npm run lint
+        - cd ../events
+        - yarn
+        - npm run lint
+        services: 
+        - mongo
+    - step:
+        name: API Integration Test
+        caches:
+          - node
+        services:
+          - mongo
+        script:
+          - cd ./authentication
+          - yarn
+          - npm run test
+          - cd ../wallet
+          - yarn
+          - npm run test
+          - cd ../events
+          - yarn
+          - npm run test
+definitions: 
+  services: 
+    mongo: 
+      image: mongo

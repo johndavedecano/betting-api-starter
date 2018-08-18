@@ -1,0 +1,84 @@
+http:
+  port: 8080
+apiEndpoints:
+  auth:
+    host: '*'
+    paths:
+      - '/api/login'
+      - '/api/user'
+      - '/api/otp'
+      - '/api/reset'
+      - '/api/signup'
+      - '/assets'
+  betting:
+    host: '*'
+    paths: '/api/betting'
+  events:
+    host: '*'
+    paths:
+      - '/api/players'
+      - '/api/categories'
+      - '/api/matches'
+  wallet:
+    host: '*'
+    paths:
+      - '/api/wallet'
+      - '/api/transactions'
+  notifications:
+    host: '*'
+    paths: '/api/notifications'   
+serviceEndpoints:
+  auth:
+    url: 'http://localhost:4041'
+  betting:
+    url: 'http://localhost:4042'
+  events:
+    url: 'http://localhost:4043'
+  wallet:
+    url: 'http://localhost:4044'
+  notifications:
+    url: 'http://localhost:4000'
+policies:
+  - proxy
+  - rate-limit
+pipelines:
+  auth:
+    apiEndpoints:
+      - auth
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: auth
+              changeOrigin: true
+  betting:
+    apiEndpoints:
+      - betting
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: betting
+              changeOrigin: true
+  events:
+    apiEndpoints:
+      - events
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: events
+              changeOrigin: true
+  wallet:
+    apiEndpoints:
+      - wallet
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: wallet
+              changeOrigin: true
+  notifications:
+    apiEndpoints:
+      - notifications
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: notifications
+              changeOrigin: true

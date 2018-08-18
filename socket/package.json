@@ -1,0 +1,25 @@
+{
+  "name": "sabong-socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "serve": "pm2 start ecosystem.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "nodemon": "^1.18.2",
+    "redis": "^2.8.0",
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.1.1",
+    "winston": "^3.0.0"
+  }
+}

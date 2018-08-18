@@ -1,0 +1,25 @@
+extends ../partials/layout.pug
+
+block content
+  div(class="row")
+    div(class="col-md-3")
+    div(class="col-md-6")
+      div(class="card")
+        div(class="card-body")
+          form(id="change-password-form" class="form-signin" method="PUT")
+            h1(class="h3 mb-3 font-weight-normal") Update Password
+
+            div(id="validation-alert" class="alert fade hide" role="alert")
+              div(id="validation-message")
+            
+            div(class="form-group")
+              label(for="password") Password
+              input(data-lpignore="true" type="password" id="password" class="form-control" required autofocus)
+            
+            div(class="form-group")
+              label(for="password_confirmation") Password Repeat
+              input(data-lpignore="true" type="password" id="password_confirmation" class="form-control" required)
+              input(type="hidden" id="token" value=token)
+
+            button(class="submit-button btn btn-lg btn-primary btn-block" type="submit") Save Changes
+    div(class="col-md-3")

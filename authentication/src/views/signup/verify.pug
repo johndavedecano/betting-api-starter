@@ -1,0 +1,12 @@
+extends ../partials/layout.pug
+
+block content
+  div(class="row")
+    div(class="col-md-3")
+    div(class="col-md-6")
+      div(class="card")
+        div(class="card-body")
+          h1(class="h3 mb-3 font-weight-normal") #{title}
+          div(class="alert alert-info" role="alert") #{message}
+          <a href="#" class="btn btn-primary btn-block btn-lg" onclick="window.close()">Close Window</a>
+    div(class="col-md-3")

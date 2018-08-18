@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sabong Socket</title>
+
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script>
+        var socket = io('http://localhost:5000', {query: {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1YjMzOTAyM2Y5NDljNzI2YjgzNTM3NjAiLCJuYW1lIjoiSm9obiBEYXZlIERlY2FubyIsInVzZXJuYW1lIjoiam9obmRhdmVkZWNhbm8iLCJlbWFpbCI6ImpvaG5kYXZlZGVjYW5vQGdtYWlsLmNvbSIsImlzX2FkbWluIjp0cnVlLCJpc19vdHAiOmZhbHNlLCJpc192ZXJpZmllZCI6dHJ1ZSwiaXNfYWN0aXZlIjp0cnVlLCJpYXQiOjE1MzE1ODQ4NTB9.GAhkN8SJP4QV_dRsw4EqesoHiuzMCrI61t8R1AzEWIQ'}});
+        
+        socket.on('NOTIFICATION', function (data) {
+            console.log(data);
+        });
+
+        socket.on('USER', function (data) {
+            console.log(data);
+        });
+
+        socket.on('WALLET', function (data) {
+            console.log(data);
+        });
+
+        socket.on('BETTING', function (data) {
+            console.log(data);
+        });
+
+        socket.on('MATCHES', function (data) {
+            console.log(data);
+        });
+    </script>
+
+</body>
+
+</html>
